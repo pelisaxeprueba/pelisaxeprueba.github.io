@@ -1,0 +1,305 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    padding: 10px;
+    background-color: #1c1c1c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilos para la parte superior */
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Menú principal */
+.menu {
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: space-evenly; /* Distribuye los elementos de manera simétrica */
+    flex-grow: 1;
+    position: relative; /* Agregado para el submenú */
+    padding: 0px 10px;
+}
+
+/* Menú UL */
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Espaciado uniforme entre los elementos */
+}
+
+/* Item del menú */
+.menu ul li {
+    position: relative;
+}
+
+/* Estilo para los enlaces del menú */
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+/* Hover de los enlaces */
+.menu ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Submenú oculto inicialmente */
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    top: 100%; /* Aparece justo debajo del item */
+    left: 0;
+    min-width: 150px;
+    max-width: 200px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+/* Mostrar el submenú cuando el cursor está encima */
+.menu-item:hover .sub-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* Submenú en columna */
+.sub-menu li {
+    padding: 5px 0;
+    display: block; /* Asegura que los elementos sean en columna */
+}
+
+/* Estilo de los enlaces dentro del submenú */
+.sub-menu li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Hover en los ítems del submenú */
+.sub-menu li a:hover {
+    background-color: #444;
+    border-radius: 3px;
+}
+
+/* Búsqueda */
+.search {
+    position: relative;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search input[type="text"] {
+    width: 100%;
+    padding: 8px 40px 8px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+}
+
+.search .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Logo */
+.logo h3 {
+    color: #fff;
+    padding: 0px 10px;
+}
+
+/* Estilos del menú hamburguesa */
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-btn i {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+/* Estilo para el contenedor de las películas */
+#pelis {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo para cada película */
+.pelicula {
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Estilo para la imagen de la película */
+.pelicula img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Título de la película */
+.pelicula h4 {
+    color: #fff;
+    padding: 10px;
+}
+
+/* Estilo para el enlace de ver el video */
+.ver-video {
+    text-decoration: none;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.ver-video:hover {
+    background-color: #cc5200;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.footer-social {
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ff0000;
+}
+
+/* Estilo para el texto de copyright */
+.footer-copy p {
+    font-size: 14px;
+    margin-top: 20px;
+    color: #aaa;
+}
+
+
+/* Media Queries para Responsividad */
+
+/* Para móviles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .menu-btn {
+        display: block;
+        margin: 20px 0;
+    }
+
+    .menu ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-btn.active + .menu ul {
+        display: flex;
+    }
+
+    #pelis {
+        grid-template-columns: 1fr;
+    }
+
+    .pelicula img {
+        height: 200px;
+    }
+}
+
+/* Para tabletas */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu {
+        justify-content: flex-start;
+    }
+
+    #pelis {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+/* Para pantallas grandes (televisores y escritorios grandes) */
+@media (min-width: 1024px) {
+    .menu {
+        justify-content: flex-start;
+    }
+
+    #pelis {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .menu ul li {
+        margin-right: 30px;
+    }
+}
